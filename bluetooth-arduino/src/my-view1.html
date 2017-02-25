@@ -1,0 +1,67 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-view1">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+    <iron-ajax id="requestArduino" url="http://localhost:9999/led" on-response="_checkState" debounce-duration="1000"></iron-ajax>
+    <div class="card">
+      <div class="circle"><i class="ionicons ion-ios-lightbulb-outline"></i></div>
+      <h1>Lumière</h1>
+      <p>Ici on simule le controle de l'éclairage de sa maison par exemple ou les pièces sont représentées par des leds...</p>  
+        
+        <div class="automatisme">
+       <div class="automatisme-item automatisme-item-green">
+            <div class="automatisme-item-label automatisme-item-label-green">Led Verte</div>
+             <div class="onoffswitch automatisme-item-switch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switchgreen" on-click="_checkBoxClicked">
+                <label class="onoffswitch-label" for="switchgreen"></label>
+            </div>
+        </div>
+        <div class="automatisme-item automatisme-item-orange">
+            <div class="automatisme-item-label automatisme-item-label-orange">Led Orange</div>
+             <div class="onoffswitch automatisme-item-switch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switchorange" on-click="_checkBoxClicked">
+                <label class="onoffswitch-label" for="switchorange"></label>
+            </div>
+        </div>
+        <div class="automatisme-item automatisme-item-red">
+            <div class="automatisme-item-label automatisme-item-label-red">Led Rouge</div>
+             <div class="onoffswitch automatisme-item-switch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switchred" on-click="_checkBoxClicked">
+                <label class="onoffswitch-label" for="switchred"></label>
+            </div>
+        </div>
+            </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-view1',
+      _checkBoxClicked: function(e) { 
+          this.$.requestArduino.url = "http://localhost:9999/led?name="+e.target.id+"&switch="+e.target.checked;
+          this.$.requestArduino.generateRequest(); 
+      },
+      _checkState: function(e){
+            console.log(e);
+      },
+    });
+  </script>
+</dom-module>

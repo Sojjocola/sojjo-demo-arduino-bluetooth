@@ -1,0 +1,158 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!-- shared styles for all views -->
+<dom-module id="shared-styles">
+  <template>
+    <style>
+      .card {
+        margin: 24px;
+        padding: 16px;
+
+        color: #757575;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+
+      .circle {
+        display: inline-block;
+
+        width: 64px;
+        height: 64px;
+
+        text-align: center;
+
+        color: #555;
+        border-radius: 50%;
+        background: #ddd;
+
+        font-size: 30px;
+        line-height: 64px;
+      }
+
+      h1 {
+        margin: 16px 0;
+
+        color: #212121;
+
+        font-size: 22px;
+      }
+        
+    .onoffswitch {
+        position: relative; width: 50px;
+        -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+        margin: auto;
+    }
+        
+    .onoffswitch-checkbox {
+        display: none;
+    }
+        
+    .onoffswitch-label {
+        display: block; overflow: hidden; cursor: pointer;
+        height: 24px; padding: 0; line-height: 24px;
+        border: 2px solid #CCCCCC; border-radius: 24px;
+        background-color: #FFFFFF;
+        transition: background-color 0.3s ease-in;
+    }
+        
+    .onoffswitch-label:before {
+        content: "";
+        display: block; width: 24px; margin: 0px;
+        background: #FFFFFF;
+        position: absolute; top: 0; bottom: 0;
+        right: 24px;
+        border: 2px solid #CCCCCC; border-radius: 24px;
+        transition: all 0.3s ease-in 0s; 
+    }
+        
+    .onoffswitch-checkbox:checked + .onoffswitch-label {
+        background-color: #49E845;
+    }
+        
+    .onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+       border-color: #49E845;
+    }
+        
+    .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+        right: 0px; 
+    }
+        .automatisme{
+            margin: 30px auto;
+            text-align: center;
+        }
+        .automatisme-item {
+            display: inline-block;
+            width: 250px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            /*border: 1px solid gray;*/
+            min-height: 150px;
+            margin: 20px;
+        }
+        
+        .automatisme-item-green {
+            -moz-box-shadow: 0px 2px 2px 0px #9aff99;
+            -webkit-box-shadow: 0px 2px 2px 0px #9aff99;
+            -o-box-shadow: 0px 2px 2px 0px #9aff99;
+            box-shadow: 0px 2px 2px 0px #9aff99;
+            filter:progid:DXImageTransform.Microsoft.Shadow(color=#9aff99, Direction=135, Strength=3);
+        }
+        .automatisme-item-orange {
+            -moz-box-shadow: 0px 2px 2px 0px #fffc9e;
+            -webkit-box-shadow: 0px 2px 2px 0px #fffc9e;
+            -o-box-shadow: 0px 2px 2px 0px #fffc9e;
+            box-shadow: 0px 2px 2px 0px #fffc9e;
+            filter:progid:DXImageTransform.Microsoft.Shadow(color=#fffc9e, Direction=135, Strength=3);
+        }
+        .automatisme-item-red{
+            -moz-box-shadow: 0px 2px 2px 0px #fd6864;
+            -webkit-box-shadow: 0px 2px 2px 0px #fd6864;
+            -o-box-shadow: 0px 2px 2px 0px #fd6864;
+            box-shadow: 0px 2px 2px 0px #fd6864;
+            filter:progid:DXImageTransform.Microsoft.Shadow(color=#fd6864, Direction=135, Strength=3);
+        }
+        .automatisme-item-gray{
+            -moz-box-shadow: 0px 2px 2px 0px #ccccb3;
+            -webkit-box-shadow: 0px 2px 2px 0px #ccccb3;
+            -o-box-shadow: 0px 2px 2px 0px #ccccb3;
+            box-shadow: 0px 2px 2px 0px #ccccb3;
+            filter:progid:DXImageTransform.Microsoft.Shadow(color=#ccccb3, Direction=135, Strength=3);
+        }
+        .automatisme-item-label {
+            padding: 20px;
+            margin-bottom: 20px;
+            color:white;
+            -moz-border-top-left-radius: 10px;
+            -moz-border-top-right-radius: 10px;
+            -webkit-border-top-left-radius: 10px;
+            -webkit-border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .automatisme-item-label-green{
+            background-color: #9aff99;
+        }
+        .automatisme-item-label-orange{
+            background-color: #fffc9e;
+        }
+        .automatisme-item-label-red{
+            background-color: #fd6864;
+        }
+         .automatisme-item-label-gray{
+            background-color: #ccccb3;
+        }
+    </style>
+  </template>
+</dom-module>

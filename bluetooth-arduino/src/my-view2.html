@@ -1,0 +1,53 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-view2">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+    <iron-ajax id="requestArduinoServo" url="http://localhost:9999/motor" on-response="_checkState" debounce-duration="1000"></iron-ajax>
+    <div class="card">
+      <div class="circle"><i class="ionicons ion-social-windows-outline"></i></div>
+      <h1>Volet</h1>
+      <p>Ici on peut simuler le controle d'une commande de volet électrique en actionnant un moteur dans un sens ou dans un autre...</p>
+         <div class="automatisme">
+       <div class="automatisme-item automatisme-item-gray">
+            <div class="automatisme-item-label automatisme-item-label-gray">Servo-Moteur</div>
+             <div class="onoffswitch automatisme-item-switch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="servo1" on-click="_checkBoxClicked">
+                <label class="onoffswitch-label" for="servo1"></label>
+            </div>
+        </div>
+        </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-view2',
+      _checkBoxClicked: function(e) { 
+          console.log( this.$.requestArduinoServo);
+          this.$.requestArduinoServo.url = "http://localhost:9999/motor?name="+e.target.id+"&switch="+e.target.checked;
+          this.$.requestArduinoServo.generateRequest(); 
+      },
+      _checkState: function(e){
+            console.log(e);
+      },
+    });
+  </script>
+</dom-module>
